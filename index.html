@@ -1,0 +1,1666 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Kumar | Home</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sidebarBg: '#121418',
+                        darkBg: '#0b0e14',
+                        cardBg: '#161b22',
+                        accent: '#e29d62',
+                        accentGlow: 'rgba(226, 157, 98, 0.15)',
+                    },
+                    fontFamily: {
+                        signature: ['"Great Vibes"', 'cursive'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #e6edf3;
+        }
+        .signature-font {
+            font-family: 'Great Vibes', cursive;
+        }
+        .tab-page {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .tab-page.active-page {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-btn.active-nav {
+            color: #e29d62;
+            background-color: rgba(226, 157, 98, 0.1);
+            border-left: 3px solid #e29d62;
+            font-weight: 600;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262d;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #30363d;
+        }
+    
+/* =========================================
+   LIGHT THEME OVERRIDE
+   Layout and animations remain unchanged
+========================================= */
+
+:root {
+    color-scheme: light;
+
+    --light-bg: #f8fafc;
+    --light-sidebar: #ffffff;
+    --light-card: #ffffff;
+    --light-text: #0f172a;
+    --light-muted: #64748b;
+    --light-border: #e2e8f0;
+    --light-hover: #f1f5f9;
+}
+
+/* Main page */
+html,
+body {
+    background-color: var(--light-bg) !important;
+    color: var(--light-text) !important;
+}
+
+/* Sidebar and mobile header */
+.bg-sidebarBg {
+    background-color: var(--light-sidebar) !important;
+}
+
+header,
+#sidebar {
+    background-color: var(--light-sidebar) !important;
+    border-color: var(--light-border) !important;
+}
+
+/* Main content background */
+.bg-darkBg {
+    background-color: var(--light-bg) !important;
+}
+
+/* All cards */
+.bg-cardBg {
+    background-color: var(--light-card) !important;
+}
+
+/* Text colors */
+.text-white {
+    color: var(--light-text) !important;
+}
+
+.text-slate-100,
+.text-slate-200 {
+    color: #1e293b !important;
+}
+
+.text-slate-300 {
+    color: #334155 !important;
+}
+
+.text-slate-400 {
+    color: #64748b !important;
+}
+
+.text-slate-500 {
+    color: #64748b !important;
+}
+
+/* Borders */
+.border-slate-700,
+.border-slate-800,
+.border-slate-800\/80 {
+    border-color: var(--light-border) !important;
+}
+
+/* Dark grey surfaces */
+.bg-slate-800,
+.bg-slate-800\/70,
+.bg-slate-800\/80,
+.bg-slate-900,
+.bg-slate-900\/80 {
+    background-color: #f1f5f9 !important;
+}
+
+/* Hover surfaces */
+.hover\:bg-white\/5:hover {
+    background-color: #f1f5f9 !important;
+}
+
+.hover\:bg-slate-700:hover {
+    background-color: #e2e8f0 !important;
+}
+
+/* Navigation */
+.nav-btn {
+    color: #475569 !important;
+}
+
+.nav-btn:hover {
+    color: #b77932 !important;
+}
+
+.nav-btn.active-nav {
+    color: #b77932 !important;
+    background-color: #fff7ed !important;
+    border-left-color: #d97706 !important;
+}
+
+/* Inputs */
+input,
+textarea {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Project images: keep image appearance unchanged */
+#tab-work img {
+    background-color: #f1f5f9;
+}
+
+/* Home tech card */
+#tab-home .home-floating-card {
+    background-color: rgba(255, 255, 255, 0.94) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
+}
+
+#tab-home .home-floating-card .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Home service cards */
+#tab-home .home-service-card,
+#tab-home .home-stat-card,
+#tab-home .home-tech-strip {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Technology pills */
+#tab-home .home-tech-pill,
+#tab-home .home-tag {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #475569 !important;
+}
+
+/* Featured project CTA */
+#tab-home .home-project-cta {
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #fffaf3 55%,
+        #fff7ed
+    ) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Timeline */
+.about-timeline-item h4,
+.about-detail .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+    background: #f8fafc !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8 !important;
+}
+
+/* Preserve amber accent and all existing animations */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+        /* HOME ONLY: full-bleed hero while preserving every other tab */
+        main:has(#tab-home.active-page) {
+            padding: 0 !important;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        main:has(#tab-home.active-page) > div.max-w-5xl {
+            width: 100%;
+            max-width: none !important;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #tab-home.minimal-home {
+            width: 100%;
+            min-width: 0;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: #d1d1d6;
+        }
+
+        #tab-home.minimal-home.active-page {
+            display: block;
+        }
+
+        #tab-home.active-page .minimal-hero {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            border-radius: 0;
+            background-color: #bfc0c7;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* Keep the light theme palette on the sidebar and other sections. */
+        #tab-home .hero-name,
+        #tab-home .hero-role {
+            color: #ffffff;
+        }
+
+        @media (max-width: 767px) {
+            main:has(#tab-home.active-page) {
+                height: auto;
+                flex: 1 1 auto;
+                overflow-y: auto;
+            }
+
+            #tab-home.active-page .minimal-hero {
+                min-height: calc(100dvh - 64px);
+            }
+        }
+
+    </style>
+<style>.tab-page{display:block!important;opacity:1!important;transform:none!important}</style><link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="h-full bg-darkBg text-slate-100 antialiased overflow-hidden flex flex-col md:flex-row">
+
+    <!-- MOBILE HEADER / TOP BAR -->
+    <header class="md:hidden flex items-center justify-between px-5 py-4 bg-sidebarBg border-b border-slate-800 shrink-0 z-40">
+        <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Avatar" class="w-9 h-9 rounded-full object-cover border border-amber-500/50">
+            <span class="signature-font text-2xl text-amber-400">S. Kumar</span>
+        </div>
+        <button id="mobile-menu-toggle" class="p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-amber-400">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- LEFT FIXED SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-72 bg-sidebarBg border-r border-slate-800/80 flex flex-col justify-between items-center py-8 px-4 z-50 transition-transform duration-300 -translate-x-full md:translate-x-0 shrink-0 h-full ">
+        
+        <!-- Mobile Close Button -->
+        <button id="mobile-menu-close" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Sidebar Top Header -->
+        <div class="flex flex-col items-center text-center w-full mt-2 md:mt-0">
+            <div class="relative group">
+                <div class="w-28 h-28 rounded-full p-1 border-2 border-amber-500/40 group-hover:border-amber-400 transition-colors shadow-xl">
+                    <img src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png?auto=format&fit=crop&w=400&q=80" alt="S. Kumar" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="absolute bottom-1 right-2 w-3.5 h-3.5 bg-emerald-500 border-2 border-sidebarBg rounded-full"></span>
+            </div>
+
+            <h1 class="signature-font text-3xl sm:text-4xl text-amber-400 mt-4 tracking-wide">S. Kumar</h1>
+            <p class="text-[11px] text-slate-400 font-mono mt-1 tracking-wider uppercase">Senior UI/UX & Web Developer</p>
+        </div>
+
+        <!-- Sidebar Middle Vertical Menu Links -->
+        <nav class="w-full space-y-1 my-6">
+            <a href="index.html" data-tab="home" class="nav-btn active-nav w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="home" class="w-4 h-4"></i>
+                <span>Home</span>
+            </a>
+            <a href="about.html" data-tab="about" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="user" class="w-4 h-4"></i>
+                <span>About</span>
+            </a>
+            <a href="services.html" data-tab="services" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+                <span>Services</span>
+            </a>
+            <a href="work.html" data-tab="work" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                <span>Work / Projects</span>
+            </a>
+            <a href="skills.html" data-tab="skills" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+                <span>Skills & Stack</span>
+            </a>
+            <a href="experience.html" data-tab="experience" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="history" class="w-4 h-4"></i>
+                <span>Experience</span>
+            </a>
+            <a href="education.html" data-tab="education" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                <span>Education & Certs</span>
+            </a>
+            <a href="reviews.html" data-tab="reviews" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="star" class="w-4 h-4"></i>
+                <span>Reviews</span>
+            </a>
+            <!-- <button onclick="switchTab('blog')" data-tab="blog" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="newspaper" class="w-4 h-4"></i>
+                <span>Blog</span>
+            </button> -->
+            <a href="contact.html" data-tab="contact" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+        <!-- Sidebar Bottom Footer -->
+        <div class="w-full flex flex-col items-center pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-3 mb-3 text-slate-400">
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+            </div>
+            <span class="w-8 h-[2px] bg-amber-500/40 rounded-full mb-2"></span>
+            <p class="text-[10px] text-slate-500 text-center font-mono">
+                Copyright © 2026 Santosh Kumar.<br/>All rights reserved.
+            </p>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA (TABBED / SINGLE PAGE APP EFFECT) -->
+    <main class="flex-1 h-full overflow-y-auto p-6 lg:p-12">
+        <div class="max-w-5xl mx-auto">
+
+           
+
+
+<!-- PAGE 1: HOME -->
+
+
+<!-- ===== HOME HERO SECTION ===== -->
+<section id="tab-home" class="tab-page active-page minimal-home">
+
+  <div class="minimal-hero hero-simple">
+
+    <!-- Background Image -->
+    <div class="hero-animated-bg" aria-hidden="true">
+      <div class="hero-background-image"></div>
+      <div class="hero-background-overlay"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="simple-hero-content">
+
+      <!-- Profile -->
+      <div class="simple-profile-wrap">
+        <div class="profile-ring"></div>
+
+        <div class="simple-profile">
+          <img
+            src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png"
+            alt="Santosh Kumar"
+          />
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <p class="simple-greeting">HELLO, I'M</p>
+
+      <h1>SANTOSH KUMAR<span>.</span></h1>
+
+      <h2>
+        <span id="typed-role">Frontend Developer</span>
+        <span class="typing-cursor">|</span>
+      </h2>
+
+      <!-- Actions -->
+      <div class="simple-hero-actions">
+        <button
+          onclick="switchTab('work')"
+          type="button"
+        >
+          View My Work 
+        </button>
+
+        <button
+          onclick="switchTab('contact')"
+          type="button"
+        >
+          Contact Me
+        </button>
+      </div>
+
+    </div>
+
+    
+  </div>
+<style>
+  /* ========================================
+     HOME HERO
+  ======================================== */
+
+  #tab-home .hero-simple {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding: 60px 22px;
+    overflow: hidden;
+
+    background: #071321;
+    color: #ffffff;
+
+    box-sizing: border-box;
+  }
+
+  #tab-home .hero-simple *,
+  #tab-home .hero-simple *::before,
+  #tab-home .hero-simple *::after {
+    box-sizing: border-box;
+  }
+
+  /* ========================================
+     STATIC BACKGROUND IMAGE
+     Actual path: public/image/home-storm-bg.png
+  ======================================== */
+
+  #tab-home .hero-animated-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    overflow: hidden;
+    pointer-events: none;
+    background: #071321;
+  }
+
+  #tab-home .hero-background-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("image/home-storm-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Keep the image visible */
+  #tab-home .hero-background-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(3, 13, 25, 0.12);
+    pointer-events: none;
+  }
+
+  /* ========================================
+     HERO CONTENT
+  ======================================== */
+
+  #tab-home .simple-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  /* ========================================
+     PROFILE IMAGE
+  ======================================== */
+
+  #tab-home .simple-profile-wrap {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 151px;
+    height: 151px;
+
+    margin: 0 auto 25px;
+  }
+
+  #tab-home .profile-ring {
+    position: absolute;
+    inset: 0;
+
+    border: 1.5px dashed rgba(160, 220, 255, 0.85);
+    border-radius: 50%;
+  }
+
+  #tab-home .simple-profile {
+    position: relative;
+    z-index: 1;
+
+    width: 130px;
+    height: 130px;
+    margin: 0;
+
+    overflow: hidden;
+
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+
+    background: #d9e5ed;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  #tab-home .simple-profile img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ========================================
+     HEADING AND TEXT
+  ======================================== */
+
+  #tab-home .simple-greeting {
+    margin: 0 0 10px;
+
+    color: #b9e5ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+
+  #tab-home .simple-hero-content h1 {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(32px, 6vw, 66px);
+    line-height: 1.15;
+    font-weight: 850;
+    letter-spacing: -2px;
+
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  #tab-home .simple-hero-content h1 span {
+    color: #91d8ff;
+  }
+
+  #tab-home .simple-hero-content h2 {
+    min-height: 32px;
+    margin: 15px 0 0;
+
+    color: #e0eaf2;
+    font-size: clamp(17px, 2.5vw, 23px);
+    font-weight: 500;
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  #tab-home .simple-hero-content #typed-role {
+    color: #a8dfff;
+  }
+
+  #tab-home .simple-hero-content .typing-cursor {
+    color: #ffffff;
+    animation: simpleCursorBlink 0.8s step-end infinite;
+  }
+
+  /* ========================================
+     ACTION BUTTONS
+  ======================================== */
+
+  #tab-home .simple-hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 28px;
+  }
+
+  #tab-home .simple-hero-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 46px;
+    padding: 0 22px;
+
+    border: 1px solid rgba(220, 239, 255, 0.85);
+    border-radius: 4px;
+
+    background: rgba(7, 19, 33, 0.55);
+    color: #ffffff;
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  #tab-home .simple-hero-actions button:first-child {
+    background: #d4e8f5;
+    border-color: #d4e8f5;
+    color: #071321;
+  }
+
+  #tab-home .simple-hero-actions button:hover {
+    transform: translateY(-3px);
+
+    border-color: #d4e8f5;
+    background: #d4e8f5;
+    color: #071321;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========================================
+     SCROLL BUTTON
+  ======================================== */
+
+  #tab-home .simple-scroll {
+    position: absolute;
+    z-index: 3;
+
+    bottom: 22px;
+    left: 50%;
+
+    width: 38px;
+    height: 38px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+
+    background: rgba(7, 19, 33, 0.45);
+    color: #ffffff;
+
+    font-size: 19px;
+    cursor: pointer;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  #tab-home .simple-scroll:hover {
+    background: #d4e8f5;
+    color: #071321;
+  }
+
+  /* ========================================
+     TYPING CURSOR
+  ======================================== */
+
+  @keyframes simpleCursorBlink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* ========================================
+     TABLET
+  ======================================== */
+
+  @media (max-width: 768px) {
+    #tab-home .hero-simple {
+      padding: 55px 20px 65px;
+    }
+
+    #tab-home .hero-background-image {
+      background-position: center center;
+    }
+
+    #tab-home .hero-background-overlay {
+      background: rgba(3, 13, 25, 0.2);
+    }
+  }
+
+  /* ========================================
+     MOBILE
+  ======================================== */
+
+  @media (max-width: 480px) {
+    #tab-home .hero-simple {
+      padding: 50px 18px 65px;
+    }
+
+    #tab-home .simple-profile-wrap {
+      width: 131px;
+      height: 131px;
+    }
+
+    #tab-home .simple-profile {
+      width: 112px;
+      height: 112px;
+    }
+
+    #tab-home .simple-hero-content h1 {
+      font-size: clamp(30px, 8.5vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    #tab-home .simple-hero-content h2 {
+      font-size: 17px;
+    }
+
+    #tab-home .simple-hero-actions {
+      gap: 10px;
+    }
+
+    #tab-home .simple-hero-actions button {
+      min-height: 44px;
+      padding: 0 16px;
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+  ======================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    #tab-home .simple-hero-content .typing-cursor {
+      animation: none;
+    }
+
+    #tab-home .simple-hero-actions button,
+    #tab-home .simple-scroll {
+      transition: none;
+    }
+  }
+</style>
+
+
+
+
+
+<!-- PREMIUM ABOUT SECTION -->
+<section id="home-about-preview" class="home-about-preview">
+
+  <div class="about-preview-bg" aria-hidden="true">
+    <span class="about-bg-orb orb-a"></span>
+    <span class="about-bg-orb orb-b"></span>
+    <div class="about-bg-grid"></div>
+  </div>
+
+  <div class="home-about-inner">
+
+    <!-- LEFT: IMAGE -->
+    <div class="home-about-visual">
+      <div class="about-image-label">
+        <span class="about-status-dot"></span>
+        FRONTEND DEVELOPER
+      </div>
+
+      <div class="about-image-frame">
+        <div class="about-image-accent"></div>
+
+        <img
+          src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png"
+          alt="Santosh Kumar - Frontend Developer"
+          loading="lazy"
+        />
+
+        <div class="about-image-bottom">
+          <span>SK.</span>
+          <span>CREATIVE DEVELOPER</span>
+        </div>
+      </div>
+
+      <span class="about-visual-index">01 / ABOUT</span>
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="home-about-copy">
+
+      <div class="about-section-label">
+        <span></span>
+        GET TO KNOW ME
+      </div>
+
+      <h2>
+        Turning ideas<br />
+        into <span>digital</span><br />
+        experiences.
+      </h2>
+
+      <p class="about-description">
+        I'm Santosh Kumar, a frontend developer focused on building
+        clean, responsive and engaging web experiences.
+      </p>
+
+      <div class="about-skills">
+        <span>React.js</span>
+        <span>Next.js</span>
+        <span>TypeScript</span>
+        <span>Tailwind CSS</span>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- FEATURED PROJECTS SECTION -->
+<section id="home-featured-projects" class="home-projects">
+  <div class="home-projects-container">
+
+    <div class="home-projects-heading">
+      <div>
+        <span class="home-projects-eyebrow">MY RECENT WORK</span>
+        <h2>Featured <span>Projects</span></h2>
+        <p>A few projects showcasing my frontend development skills.</p>
+      </div>
+
+      <button
+        type="button"
+        class="home-projects-view-all"
+        onclick="switchTab('work')"
+      >
+        View All Projects 
+      </button>
+    </div>
+
+    <div class="home-projects-grid">
+
+      <!-- Project 1 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+            alt="Analytics dashboard project"
+            loading="lazy"
+          />
+          <span class="home-project-number">01</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">REACT.JS · TAILWIND CSS</span>
+          <h3>Analytics Dashboard</h3>
+          <p>A clean dashboard interface for presenting data, metrics and visual insights.</p>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
+            alt="Business analytics website"
+            loading="lazy"
+          />
+          <span class="home-project-number">02</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">NEXT.JS · TYPESCRIPT</span>
+          <h3>Business Website</h3>
+          <p>A responsive website focused on clear content, modern layouts and usability.</p>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+            alt="E-commerce shopping interface"
+            loading="lazy"
+          />
+          <span class="home-project-number">03</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">REACT.JS · API INTEGRATION</span>
+          <h3>E-commerce UI</h3>
+          <p>A product-focused shopping interface with reusable components and responsive design.</p>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+            alt="Web application interface"
+            loading="lazy"
+          />
+          <span class="home-project-number">04</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">JAVASCRIPT · CSS</span>
+          <h3>Interactive Web App</h3>
+          <p>An interactive web experience built around intuitive navigation and a simple user interface.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="home-projects-bottom">
+      <button
+        type="button"
+        class="home-projects-bottom-btn"
+        onclick="switchTab('work')"
+      >
+        Explore All Projects 
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Featured Projects - scoped styles */
+  #home-featured-projects {
+    width: 100%;
+    padding: 70px 5%;
+    background: #f3efe6;
+    color: #171717;
+    box-sizing: border-box;
+  }
+
+  #home-featured-projects *,
+  #home-featured-projects *::before,
+  #home-featured-projects *::after {
+    box-sizing: border-box;
+  }
+
+  #home-featured-projects .home-projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #home-featured-projects .home-projects-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  #home-featured-projects .home-projects-eyebrow {
+    color: #a87526;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+
+  #home-featured-projects .home-projects-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  #home-featured-projects .home-projects-heading h2 span {
+    color: #c58a2b;
+  }
+
+  #home-featured-projects .home-projects-heading p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  #home-featured-projects .home-projects-view-all {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid #dedede;
+    border-radius: 30px;
+    background: #fff;
+    color: #222;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+
+  #home-featured-projects .home-projects-view-all:hover {
+    background: #171717;
+    border-color: #171717;
+    color: #fff;
+  }
+
+  #home-featured-projects .home-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  #home-featured-projects .home-project-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #home-featured-projects .home-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+  }
+
+  #home-featured-projects .home-project-image {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: #ececec;
+  }
+
+  #home-featured-projects .home-project-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #home-featured-projects .home-project-card:hover .home-project-image img {
+    transform: scale(1.05);
+  }
+
+  #home-featured-projects .home-project-number {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  #home-featured-projects .home-project-info {
+    padding: 22px;
+  }
+
+  #home-featured-projects .home-project-tech {
+    color: #b17b2b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  #home-featured-projects .home-project-info h3 {
+    margin: 10px 0 8px;
+    color: #171717;
+    font-size: 19px;
+    font-weight: 750;
+  }
+
+  #home-featured-projects .home-project-info p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  #home-featured-projects .home-projects-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  #home-featured-projects .home-projects-bottom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 22px;
+    border: 1px solid #171717;
+    border-radius: 30px;
+    background: #171717;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+
+  #home-featured-projects .home-projects-bottom-btn:hover {
+    background: #c58a2b;
+    border-color: #c58a2b;
+  }
+
+  /* Tablet */
+  @media (max-width: 760px) {
+    #home-featured-projects {
+      padding: 52px 4%;
+    }
+
+    #home-featured-projects .home-projects-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    #home-featured-projects .home-projects-image {
+      height: 200px;
+    }
+
+    #home-featured-projects .home-project-image {
+      height: 200px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 520px) {
+    #home-featured-projects {
+      padding: 42px 18px;
+    }
+
+    #home-featured-projects .home-projects-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    #home-featured-projects .home-project-image {
+      height: 210px;
+    }
+
+    #home-featured-projects .home-project-info {
+      padding: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #home-featured-projects *,
+    #home-featured-projects *::before,
+    #home-featured-projects *::after {
+      transition: none !important;
+    }
+  }
+</style>
+<!-- =====================================================
+     HOME — LOWER SECTIONS (pure HTML + scoped CSS)
+     Palette shared with the About section: cream / ink / gold
+====================================================== -->
+
+<!-- STATS BAND -->
+<section class="hx hx-stats" aria-label="At a glance">
+  <div class="hx-wrap hx-stats-grid">
+    <div class="hx-stat hx-reveal">
+      <strong>6<sup>+</sup></strong>
+      <span>Years building for the web</span>
+    </div>
+    <div class="hx-stat hx-reveal">
+      <strong>40<sup>+</sup></strong>
+      <span>Projects shipped</span>
+    </div>
+    <div class="hx-stat hx-reveal">
+      <strong>12</strong>
+      <span>Product platforms supported</span>
+    </div>
+    <div class="hx-stat hx-reveal">
+      <strong>100<sup>%</sup></strong>
+      <span>Responsive &amp; accessible builds</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="hx hx-services" aria-labelledby="hx-services-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-split">
+      <div>
+        <span class="hx-eyebrow"><i></i>WHAT I DO</span>
+        <h2 id="hx-services-title">Services that take ideas <span>to launch</span></h2>
+      </div>
+      <a href="services.html" class="hx-link">Explore services <b>→</b></a>
+    </div>
+
+    <div class="hx-services-grid">
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">01</span>
+        <div class="hx-service-icon"><i data-lucide="code-2"></i></div>
+        <h3>Web Development</h3>
+        <p>High-performance web apps built with React, TypeScript, Next.js and Node.js.</p>
+      </article>
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">02</span>
+        <div class="hx-service-icon"><i data-lucide="pen-tool"></i></div>
+        <h3>Responsive UI / UX</h3>
+        <p>Clean Figma prototypes turned into pixel-perfect, responsive frontends.</p>
+      </article>
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">03</span>
+        <div class="hx-service-icon"><i data-lucide="gauge"></i></div>
+        <h3>Performance &amp; SEO</h3>
+        <p>Auditing speed, SEO scores and WCAG accessibility so every page feels instant.</p>
+      </article>
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">04</span>
+        <div class="hx-service-icon"><i data-lucide="server"></i></div>
+        <h3>API &amp; Backend</h3>
+        <p>REST / GraphQL APIs and database integration with PostgreSQL and Redis.</p>
+      </article>
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">05</span>
+        <div class="hx-service-icon"><i data-lucide="shopping-bag"></i></div>
+        <h3>E-commerce</h3>
+        <p>Online stores with product catalogs, secure checkout and smooth shopping UX.</p>
+      </article>
+      <article class="hx-service hx-reveal">
+        <span class="hx-service-no">06</span>
+        <div class="hx-service-icon"><i data-lucide="life-buoy"></i></div>
+        <h3>Maintenance &amp; Support</h3>
+        <p>Bug fixes, content updates and ongoing improvements to keep sites healthy.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="hx hx-process" aria-labelledby="hx-process-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-center">
+      <span class="hx-eyebrow"><i></i>HOW I WORK<i></i></span>
+      <h2 id="hx-process-title">A simple, <span>transparent</span> process</h2>
+      <p>Clear steps from the first conversation to a product you're proud to launch.</p>
+    </div>
+
+    <ol class="hx-steps">
+      <li class="hx-step hx-reveal">
+        <span class="hx-step-dot">1</span>
+        <h3>Discover</h3>
+        <p>Understand your goals, users and the problem worth solving.</p>
+      </li>
+      <li class="hx-step hx-reveal">
+        <span class="hx-step-dot">2</span>
+        <h3>Design</h3>
+        <p>Wireframes and polished UI in Figma, reviewed together early.</p>
+      </li>
+      <li class="hx-step hx-reveal">
+        <span class="hx-step-dot">3</span>
+        <h3>Develop</h3>
+        <p>Clean, reusable components with regular previews of progress.</p>
+      </li>
+      <li class="hx-step hx-reveal">
+        <span class="hx-step-dot">4</span>
+        <h3>Deliver</h3>
+        <p>Testing, launch and support so everything keeps running smoothly.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="hx hx-tech" aria-labelledby="hx-tech-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-split">
+      <div>
+        <span class="hx-eyebrow"><i></i>TOOLS I USE</span>
+        <h2 id="hx-tech-title">Technology <span>&amp;</span> skills</h2>
+      </div>
+      <a href="skills.html" class="hx-link">See all skills <b>→</b></a>
+    </div>
+  </div>
+
+  <div class="hx-marquee" aria-hidden="true">
+    <div class="hx-marquee-track">
+      <span>React</span><span>Next.js</span><span>TypeScript</span><span>JavaScript</span><span>Tailwind CSS</span><span>Node.js</span><span>HTML5</span><span>CSS3</span><span>Figma</span><span>Git</span><span>PostgreSQL</span><span>MongoDB</span><span>Docker</span><span>AWS</span>
+      <span>React</span><span>Next.js</span><span>TypeScript</span><span>JavaScript</span><span>Tailwind CSS</span><span>Node.js</span><span>HTML5</span><span>CSS3</span><span>Figma</span><span>Git</span><span>PostgreSQL</span><span>MongoDB</span><span>Docker</span><span>AWS</span>
+    </div>
+  </div>
+
+  <div class="hx-wrap hx-tech-grid">
+    <article class="hx-tech-card hx-reveal">
+      <header><i data-lucide="layout-template"></i><h3>Frontend</h3></header>
+      <ul>
+        <li><span>React / Next.js</span><em>Expert</em><b style="--lvl:95%"></b></li>
+        <li><span>TypeScript</span><em>Expert</em><b style="--lvl:92%"></b></li>
+        <li><span>Tailwind CSS</span><em>Expert</em><b style="--lvl:94%"></b></li>
+        <li><span>HTML5 &amp; CSS3</span><em>Expert</em><b style="--lvl:96%"></b></li>
+      </ul>
+    </article>
+    <article class="hx-tech-card hx-reveal">
+      <header><i data-lucide="database"></i><h3>Backend</h3></header>
+      <ul>
+        <li><span>Node.js</span><em>Advanced</em><b style="--lvl:82%"></b></li>
+        <li><span>REST APIs</span><em>Advanced</em><b style="--lvl:85%"></b></li>
+        <li><span>PostgreSQL</span><em>Intermediate</em><b style="--lvl:70%"></b></li>
+        <li><span>MongoDB</span><em>Intermediate</em><b style="--lvl:68%"></b></li>
+      </ul>
+    </article>
+    <article class="hx-tech-card hx-reveal">
+      <header><i data-lucide="wrench"></i><h3>Tools &amp; Design</h3></header>
+      <ul>
+        <li><span>Figma</span><em>Advanced</em><b style="--lvl:85%"></b></li>
+        <li><span>Git &amp; GitHub</span><em>Advanced</em><b style="--lvl:88%"></b></li>
+        <li><span>Docker</span><em>Intermediate</em><b style="--lvl:65%"></b></li>
+        <li><span>AWS</span><em>Intermediate</em><b style="--lvl:66%"></b></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="hx hx-journey" aria-labelledby="hx-journey-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-center">
+      <span class="hx-eyebrow"><i></i>THE JOURNEY<i></i></span>
+      <h2 id="hx-journey-title">Experience <span>&amp;</span> education</h2>
+    </div>
+
+    <div class="hx-timeline">
+      <article class="hx-tl-item hx-reveal">
+        <span class="hx-tl-tag">Experience</span>
+        <time>2023 — Present</time>
+        <h3>Lead Frontend Engineer</h3>
+        <p class="hx-tl-org">TechPulse Corp · San Francisco</p>
+        <p>Spearheaded a shared design system used across 12 product platforms.</p>
+      </article>
+      <article class="hx-tl-item hx-reveal">
+        <span class="hx-tl-tag">Experience</span>
+        <time>2020 — 2023</time>
+        <h3>Full Stack Developer</h3>
+        <p class="hx-tl-org">Apex Software · New York</p>
+        <p>Built scalable web applications with Next.js, Node.js and PostgreSQL.</p>
+      </article>
+      <article class="hx-tl-item hx-reveal">
+        <span class="hx-tl-tag hx-tl-tag-alt">Certification</span>
+        <time>2024</time>
+        <h3>AWS Solutions Architect</h3>
+        <p class="hx-tl-org">Amazon Web Services</p>
+        <p>Designing reliable, cost-efficient cloud architecture.</p>
+      </article>
+      <article class="hx-tl-item hx-reveal">
+        <span class="hx-tl-tag hx-tl-tag-alt">Education</span>
+        <time>2015 — 2019</time>
+        <h3>B.S. Computer Science</h3>
+        <p class="hx-tl-org">UC Berkeley</p>
+        <p>Foundations in software engineering, algorithms and problem solving.</p>
+      </article>
+    </div>
+
+    <div class="hx-center-links">
+      <a href="experience.html" class="hx-link">Full experience <b>→</b></a>
+      <a href="education.html" class="hx-link">Education &amp; certs <b>→</b></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="hx hx-reviews" aria-labelledby="hx-reviews-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-split">
+      <div>
+        <span class="hx-eyebrow"><i></i>KIND WORDS</span>
+        <h2 id="hx-reviews-title">What clients <span>say</span></h2>
+      </div>
+      <a href="reviews.html" class="hx-link">All reviews <b>→</b></a>
+    </div>
+
+    <div class="hx-reviews-grid">
+      <figure class="hx-review hx-review-featured hx-reveal">
+        <div class="hx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Santosh delivered our web app ahead of schedule. The code quality and design polish were exceptional.”</blockquote>
+        <figcaption>
+          <span class="hx-avatar">SJ</span>
+          <span><strong>Sarah Jenkins</strong><small>Founder, SaaSify</small></span>
+        </figcaption>
+      </figure>
+      <figure class="hx-review hx-reveal">
+        <div class="hx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Collaborating was seamless. A highly creative and reliable engineer.”</blockquote>
+        <figcaption>
+          <span class="hx-avatar">DR</span>
+          <span><strong>David Ross</strong><small>VP Product</small></span>
+        </figcaption>
+      </figure>
+      <figure class="hx-review hx-reveal">
+        <div class="hx-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Great communication, clean handoff and a site that is noticeably faster than before.”</blockquote>
+        <figcaption>
+          <span class="hx-avatar">MP</span>
+          <span><strong>Maya Patel</strong><small>Marketing Lead</small></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="hx hx-faq" aria-labelledby="hx-faq-title">
+  <div class="hx-wrap hx-faq-layout">
+    <div class="hx-head">
+      <span class="hx-eyebrow"><i></i>FAQ</span>
+      <h2 id="hx-faq-title">Questions, <span>answered</span></h2>
+      <p>Can't find what you're looking for? <a href="contact.html">Send me a message</a>.</p>
+    </div>
+
+    <div class="hx-faq-list">
+      <details class="hx-faq-item" open>
+        <summary>What kind of projects do you take on?</summary>
+        <p>Websites, web apps, dashboards and e-commerce stores — from a single landing page to a full product frontend.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>How long does a typical project take?</summary>
+        <p>A landing page usually takes 1–2 weeks; larger web apps take 4–10 weeks depending on scope. You'll get a clear timeline before we start.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>Can you work from my existing design?</summary>
+        <p>Yes. I can build from Figma, Adobe XD or even screenshots, or design the interface for you first.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>Do you offer support after launch?</summary>
+        <p>Absolutely — bug fixes, updates and performance improvements are available as ongoing support.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="hx hx-cta" aria-labelledby="hx-cta-title">
+  <div class="hx-wrap">
+    <div class="hx-cta-box hx-reveal">
+      <span class="hx-badge"><i></i>Available for new projects</span>
+      <h2 id="hx-cta-title">Have a project in mind?<br/>Let's build something <span>great.</span></h2>
+      <p>Tell me what you're working on — I'd be glad to talk through the next steps.</p>
+      <div class="hx-cta-actions">
+        <a href="contact.html" class="hx-btn hx-btn-gold">Get in touch <b>↗</b></a>
+        <a href="work.html" class="hx-btn hx-btn-ghost">View my work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="hx hx-footer">
+  <div class="hx-wrap hx-footer-row">
+    <span class="hx-footer-logo">SK<span>.</span></span>
+    <nav aria-label="Footer">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <small>© 2026 Santosh Kumar. All rights reserved.</small>
+  </div>
+</footer>
+
+
+</section>
+        </div>
+    </main>
+    <script>
+        function switchTab(tab) {
+            const pages = { home: 'index.html', about: 'about.html', services: 'services.html', work: 'work.html', skills: 'skills.html', experience: 'experience.html', education: 'education.html', reviews: 'reviews.html', contact: 'contact.html' };
+            if (pages[tab]) window.location.href = pages[tab];
+        }
+
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Home testimonials: three pages, two reviews per page, with autoplay.
+        (() => {
+            const carousel = document.querySelector('[data-testimonial-carousel]');
+            if (!carousel) return;
+
+            const pages = [...carousel.querySelectorAll('[data-testimonial-page]')];
+            const dots = [...carousel.querySelectorAll('[data-testimonial-dot]')];
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let activePage = 0;
+            let autoplayTimer;
+
+            const showPage = (index) => {
+                activePage = (index + pages.length) % pages.length;
+                pages.forEach((page, pageIndex) => {
+                    page.hidden = pageIndex !== activePage;
+                });
+                dots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === activePage;
+                    dot.setAttribute('aria-current', String(isActive));
+                    dot.classList.toggle('bg-amber-400', isActive);
+                    dot.classList.toggle('bg-slate-600', !isActive);
+                });
+            };
+
+            const stopAutoplay = () => window.clearInterval(autoplayTimer);
+            const startAutoplay = () => {
+                stopAutoplay();
+                if (!reduceMotion && !document.hidden) {
+                    autoplayTimer = window.setInterval(() => showPage(activePage + 1), 6000);
+                }
+            };
+
+            carousel.querySelector('[data-testimonial-prev]')?.addEventListener('click', () => {
+                showPage(activePage - 1);
+                startAutoplay();
+            });
+            carousel.querySelector('[data-testimonial-next]')?.addEventListener('click', () => {
+                showPage(activePage + 1);
+                startAutoplay();
+            });
+            dots.forEach((dot) => dot.addEventListener('click', () => {
+                showPage(Number(dot.dataset.testimonialDot));
+                startAutoplay();
+            }));
+
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+            carousel.addEventListener('focusin', stopAutoplay);
+            carousel.addEventListener('focusout', (event) => {
+                if (!carousel.contains(event.relatedTarget)) startAutoplay();
+            });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAutoplay();
+                else startAutoplay();
+            });
+
+            showPage(0);
+            startAutoplay();
+        })();
+
+        const currentPage = location.pathname.split('/').pop().replace('.html', '') || 'home';
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.toggle('active-nav', btn.dataset.tab === currentPage || (currentPage === 'index' && btn.dataset.tab === 'home'));
+        });
+
+        // Mobile Menu Logic
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            sidebar.classList.remove('-translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            sidebar.classList.add('-translate-x-full');
+        }
+
+        menuToggle?.addEventListener('click', openMobileMenu);
+        menuClose?.addEventListener('click', closeMobileMenu);
+
+        // Form Submit Handler
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

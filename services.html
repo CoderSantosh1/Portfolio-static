@@ -1,0 +1,675 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Kumar | Services</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sidebarBg: '#121418',
+                        darkBg: '#0b0e14',
+                        cardBg: '#161b22',
+                        accent: '#e29d62',
+                        accentGlow: 'rgba(226, 157, 98, 0.15)',
+                    },
+                    fontFamily: {
+                        signature: ['"Great Vibes"', 'cursive'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #e6edf3;
+        }
+        .signature-font {
+            font-family: 'Great Vibes', cursive;
+        }
+        .tab-page {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .tab-page.active-page {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-btn.active-nav {
+            color: #e29d62;
+            background-color: rgba(226, 157, 98, 0.1);
+            border-left: 3px solid #e29d62;
+            font-weight: 600;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262d;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #30363d;
+        }
+    
+/* =========================================
+   LIGHT THEME OVERRIDE
+   Layout and animations remain unchanged
+========================================= */
+
+:root {
+    color-scheme: light;
+
+    --light-bg: #f8fafc;
+    --light-sidebar: #ffffff;
+    --light-card: #ffffff;
+    --light-text: #0f172a;
+    --light-muted: #64748b;
+    --light-border: #e2e8f0;
+    --light-hover: #f1f5f9;
+}
+
+/* Main page */
+html,
+body {
+    background-color: var(--light-bg) !important;
+    color: var(--light-text) !important;
+}
+
+/* Sidebar and mobile header */
+.bg-sidebarBg {
+    background-color: var(--light-sidebar) !important;
+}
+
+header,
+#sidebar {
+    background-color: var(--light-sidebar) !important;
+    border-color: var(--light-border) !important;
+}
+
+/* Main content background */
+.bg-darkBg {
+    background-color: var(--light-bg) !important;
+}
+
+/* All cards */
+.bg-cardBg {
+    background-color: var(--light-card) !important;
+}
+
+/* Text colors */
+.text-white {
+    color: var(--light-text) !important;
+}
+
+.text-slate-100,
+.text-slate-200 {
+    color: #1e293b !important;
+}
+
+.text-slate-300 {
+    color: #334155 !important;
+}
+
+.text-slate-400 {
+    color: #64748b !important;
+}
+
+.text-slate-500 {
+    color: #64748b !important;
+}
+
+/* Borders */
+.border-slate-700,
+.border-slate-800,
+.border-slate-800\/80 {
+    border-color: var(--light-border) !important;
+}
+
+/* Dark grey surfaces */
+.bg-slate-800,
+.bg-slate-800\/70,
+.bg-slate-800\/80,
+.bg-slate-900,
+.bg-slate-900\/80 {
+    background-color: #f1f5f9 !important;
+}
+
+/* Hover surfaces */
+.hover\:bg-white\/5:hover {
+    background-color: #f1f5f9 !important;
+}
+
+.hover\:bg-slate-700:hover {
+    background-color: #e2e8f0 !important;
+}
+
+/* Navigation */
+.nav-btn {
+    color: #475569 !important;
+}
+
+.nav-btn:hover {
+    color: #b77932 !important;
+}
+
+.nav-btn.active-nav {
+    color: #b77932 !important;
+    background-color: #fff7ed !important;
+    border-left-color: #d97706 !important;
+}
+
+/* Inputs */
+input,
+textarea {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Project images: keep image appearance unchanged */
+#tab-work img {
+    background-color: #f1f5f9;
+}
+
+/* Home tech card */
+#tab-home .home-floating-card {
+    background-color: rgba(255, 255, 255, 0.94) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
+}
+
+#tab-home .home-floating-card .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Home service cards */
+#tab-home .home-service-card,
+#tab-home .home-stat-card,
+#tab-home .home-tech-strip {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Technology pills */
+#tab-home .home-tech-pill,
+#tab-home .home-tag {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #475569 !important;
+}
+
+/* Featured project CTA */
+#tab-home .home-project-cta {
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #fffaf3 55%,
+        #fff7ed
+    ) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Timeline */
+.about-timeline-item h4,
+.about-detail .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+    background: #f8fafc !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8 !important;
+}
+
+/* Preserve amber accent and all existing animations */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+        /* HOME ONLY: full-bleed hero while preserving every other tab */
+        main:has(#tab-home.active-page) {
+            padding: 0 !important;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        main:has(#tab-home.active-page) > div.max-w-5xl {
+            width: 100%;
+            max-width: none !important;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #tab-home.minimal-home {
+            width: 100%;
+            min-width: 0;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: #d1d1d6;
+        }
+
+        #tab-home.minimal-home.active-page {
+            display: block;
+        }
+
+        #tab-home.active-page .minimal-hero {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            border-radius: 0;
+            background-color: #bfc0c7;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* Keep the light theme palette on the sidebar and other sections. */
+        #tab-home .hero-name,
+        #tab-home .hero-role {
+            color: #ffffff;
+        }
+
+        @media (max-width: 767px) {
+            main:has(#tab-home.active-page) {
+                height: auto;
+                flex: 1 1 auto;
+                overflow-y: auto;
+            }
+
+            #tab-home.active-page .minimal-hero {
+                min-height: calc(100dvh - 64px);
+            }
+        }
+
+    </style>
+<style>.tab-page{display:block!important;opacity:1!important;transform:none!important}</style><link rel="stylesheet" href="css/theme.css">
+</head>
+<body class="h-full bg-darkBg text-slate-100 antialiased overflow-hidden flex flex-col md:flex-row">
+
+    <!-- MOBILE HEADER / TOP BAR -->
+    <header class="md:hidden flex items-center justify-between px-5 py-4 bg-sidebarBg border-b border-slate-800 shrink-0 z-40">
+        <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Avatar" class="w-9 h-9 rounded-full object-cover border border-amber-500/50">
+            <span class="signature-font text-2xl text-amber-400">S. Kumar</span>
+        </div>
+        <button id="mobile-menu-toggle" class="p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-amber-400">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- LEFT FIXED SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-72 bg-sidebarBg border-r border-slate-800/80 flex flex-col justify-between items-center py-8 px-4 z-50 transition-transform duration-300 -translate-x-full md:translate-x-0 shrink-0 h-full ">
+        
+        <!-- Mobile Close Button -->
+        <button id="mobile-menu-close" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Sidebar Top Header -->
+        <div class="flex flex-col items-center text-center w-full mt-2 md:mt-0">
+            <div class="relative group">
+                <div class="w-28 h-28 rounded-full p-1 border-2 border-amber-500/40 group-hover:border-amber-400 transition-colors shadow-xl">
+                    <img src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png?auto=format&fit=crop&w=400&q=80" alt="S. Kumar" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="absolute bottom-1 right-2 w-3.5 h-3.5 bg-emerald-500 border-2 border-sidebarBg rounded-full"></span>
+            </div>
+
+            <h1 class="signature-font text-3xl sm:text-4xl text-amber-400 mt-4 tracking-wide">S. Kumar</h1>
+            <p class="text-[11px] text-slate-400 font-mono mt-1 tracking-wider uppercase">Senior UI/UX & Web Developer</p>
+        </div>
+
+        <!-- Sidebar Middle Vertical Menu Links -->
+        <nav class="w-full space-y-1 my-6">
+            <a href="index.html" data-tab="home" class="nav-btn active-nav w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="home" class="w-4 h-4"></i>
+                <span>Home</span>
+            </a>
+            <a href="about.html" data-tab="about" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="user" class="w-4 h-4"></i>
+                <span>About</span>
+            </a>
+            <a href="services.html" data-tab="services" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+                <span>Services</span>
+            </a>
+            <a href="work.html" data-tab="work" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                <span>Work / Projects</span>
+            </a>
+            <a href="skills.html" data-tab="skills" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+                <span>Skills & Stack</span>
+            </a>
+            <a href="experience.html" data-tab="experience" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="history" class="w-4 h-4"></i>
+                <span>Experience</span>
+            </a>
+            <a href="education.html" data-tab="education" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                <span>Education & Certs</span>
+            </a>
+            <a href="reviews.html" data-tab="reviews" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="star" class="w-4 h-4"></i>
+                <span>Reviews</span>
+            </a>
+            <!-- <button onclick="switchTab('blog')" data-tab="blog" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="newspaper" class="w-4 h-4"></i>
+                <span>Blog</span>
+            </button> -->
+            <a href="contact.html" data-tab="contact" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+        <!-- Sidebar Bottom Footer -->
+        <div class="w-full flex flex-col items-center pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-3 mb-3 text-slate-400">
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+            </div>
+            <span class="w-8 h-[2px] bg-amber-500/40 rounded-full mb-2"></span>
+            <p class="text-[10px] text-slate-500 text-center font-mono">
+                Copyright © 2026 Santosh Kumar.<br/>All rights reserved.
+            </p>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA (TABBED / SINGLE PAGE APP EFFECT) -->
+    <main class="hx-main flex-1 h-full overflow-y-auto">
+<!-- PAGE HERO -->
+<section class="hx hx-page-hero">
+  <div class="hx-wrap">
+    <nav class="hx-crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <b>Services</b></nav>
+    <span class="hx-eyebrow"><i></i>WHAT I OFFER</span>
+    <h1>Services built to help your product <span>grow.</span></h1>
+    <p class="hx-lead">From early design decisions to a polished, production-ready website — everything you need to launch and keep improving.</p>
+    <span class="hx-page-index" aria-hidden="true">02</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="hx" aria-labelledby="svc-title">
+  <div class="hx-wrap">
+    <div class="hx-head">
+      <span class="hx-eyebrow"><i></i>SERVICES OFFERED</span>
+      <h2 id="svc-title">How I can <span>help</span></h2>
+    </div>
+
+    <div class="hx-svc-grid">
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Developer building a website on a laptop" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="layout"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>Web Development</h3>
+          <p>High-performance web apps built using React, TypeScript, Next.js and Node.js.</p>
+        </div>
+      </article>
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80" alt="Mobile-friendly interface design displayed on a screen" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="smartphone"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>Responsive UI / UX</h3>
+          <p>Clean design prototypes in Figma, transformed into responsive, reactive frontends.</p>
+        </div>
+      </article>
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Website performance analytics dashboard" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="zap"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>Performance Optimization</h3>
+          <p>Auditing and tuning speed, SEO scores and WCAG accessibility standards.</p>
+        </div>
+      </article>
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" alt="Backend server infrastructure" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="database"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>API &amp; Backend Architecture</h3>
+          <p>REST / GraphQL APIs and serverless database integration with PostgreSQL &amp; Redis.</p>
+        </div>
+      </article>
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80" alt="Online store checkout on a laptop" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="shopping-bag"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>E-commerce Development</h3>
+          <p>Easy-to-use online stores with product catalogs, secure checkout and responsive shopping.</p>
+        </div>
+      </article>
+      <article class="hx-svc hx-reveal">
+        <div class="hx-svc-media">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Website analytics and performance dashboard" loading="lazy">
+          <div class="hx-service-icon"><i data-lucide="wrench"></i></div>
+        </div>
+        <div class="hx-svc-body">
+          <h3>Maintenance &amp; Support</h3>
+          <p>Keeping websites secure and up to date with fixes, content updates and improvements.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="hx hx-process" aria-labelledby="svc-process-title">
+  <div class="hx-wrap">
+    <div class="hx-head hx-head-center">
+      <span class="hx-eyebrow"><i></i>HOW I WORK<i></i></span>
+      <h2 id="svc-process-title">A simple, <span>transparent</span> process</h2>
+      <p>Clear steps from the first conversation to a product you're proud to launch.</p>
+    </div>
+    <ol class="hx-steps">
+      <li class="hx-step hx-reveal"><span class="hx-step-dot">1</span><h3>Discover</h3><p>Understand your goals, users and the problem worth solving.</p></li>
+      <li class="hx-step hx-reveal"><span class="hx-step-dot">2</span><h3>Design</h3><p>Wireframes and polished UI in Figma, reviewed together early.</p></li>
+      <li class="hx-step hx-reveal"><span class="hx-step-dot">3</span><h3>Develop</h3><p>Clean, reusable components with regular previews of progress.</p></li>
+      <li class="hx-step hx-reveal"><span class="hx-step-dot">4</span><h3>Deliver</h3><p>Testing, launch and support so everything keeps running smoothly.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="hx" aria-labelledby="svc-faq-title">
+  <div class="hx-wrap hx-faq-layout">
+    <div class="hx-head">
+      <span class="hx-eyebrow"><i></i>FAQ</span>
+      <h2 id="svc-faq-title">Questions, <span>answered</span></h2>
+      <p>Can't find what you're looking for? <a href="contact.html">Send me a message</a>.</p>
+    </div>
+    <div class="hx-faq-list">
+      <details class="hx-faq-item" open>
+        <summary>What kind of projects do you take on?</summary>
+        <p>Websites, web apps, dashboards and e-commerce stores — from a single landing page to a full product frontend.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>How long does a typical project take?</summary>
+        <p>A landing page usually takes 1–2 weeks; larger web apps take 4–10 weeks depending on scope. You'll get a clear timeline before we start.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>Can you work from my existing design?</summary>
+        <p>Yes. I can build from Figma, Adobe XD or even screenshots, or design the interface for you first.</p>
+      </details>
+      <details class="hx-faq-item">
+        <summary>Do you offer support after launch?</summary>
+        <p>Absolutely — bug fixes, updates and performance improvements are available as ongoing support.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="hx hx-cta" aria-labelledby="hx-cta-title">
+  <div class="hx-wrap">
+    <div class="hx-cta-box hx-reveal">
+      <span class="hx-badge"><i></i>Available for new projects</span>
+      <h2 id="hx-cta-title">Have a project in mind?<br/>Let's build something <span>great.</span></h2>
+      <p>Tell me what you're working on — I'd be glad to talk through the next steps.</p>
+      <div class="hx-cta-actions">
+        <a href="contact.html" class="hx-btn hx-btn-gold">Get in touch <b>↗</b></a>
+        <a href="work.html" class="hx-btn hx-btn-ghost">View my work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="hx hx-footer">
+  <div class="hx-wrap hx-footer-row">
+    <span class="hx-footer-logo">SK<span>.</span></span>
+    <nav aria-label="Footer">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Work</a>
+      <a href="skills.html">Skills</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <small>© 2026 Santosh Kumar. All rights reserved.</small>
+  </div>
+</footer>
+    </main>
+    <script>
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Home testimonials: three pages, two reviews per page, with autoplay.
+        (() => {
+            const carousel = document.querySelector('[data-testimonial-carousel]');
+            if (!carousel) return;
+
+            const pages = [...carousel.querySelectorAll('[data-testimonial-page]')];
+            const dots = [...carousel.querySelectorAll('[data-testimonial-dot]')];
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let activePage = 0;
+            let autoplayTimer;
+
+            const showPage = (index) => {
+                activePage = (index + pages.length) % pages.length;
+                pages.forEach((page, pageIndex) => {
+                    page.hidden = pageIndex !== activePage;
+                });
+                dots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === activePage;
+                    dot.setAttribute('aria-current', String(isActive));
+                    dot.classList.toggle('bg-amber-400', isActive);
+                    dot.classList.toggle('bg-slate-600', !isActive);
+                });
+            };
+
+            const stopAutoplay = () => window.clearInterval(autoplayTimer);
+            const startAutoplay = () => {
+                stopAutoplay();
+                if (!reduceMotion && !document.hidden) {
+                    autoplayTimer = window.setInterval(() => showPage(activePage + 1), 6000);
+                }
+            };
+
+            carousel.querySelector('[data-testimonial-prev]')?.addEventListener('click', () => {
+                showPage(activePage - 1);
+                startAutoplay();
+            });
+            carousel.querySelector('[data-testimonial-next]')?.addEventListener('click', () => {
+                showPage(activePage + 1);
+                startAutoplay();
+            });
+            dots.forEach((dot) => dot.addEventListener('click', () => {
+                showPage(Number(dot.dataset.testimonialDot));
+                startAutoplay();
+            }));
+
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+            carousel.addEventListener('focusin', stopAutoplay);
+            carousel.addEventListener('focusout', (event) => {
+                if (!carousel.contains(event.relatedTarget)) startAutoplay();
+            });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAutoplay();
+                else startAutoplay();
+            });
+
+            showPage(0);
+            startAutoplay();
+        })();
+
+        const currentPage = location.pathname.split('/').pop().replace('.html', '') || 'home';
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.toggle('active-nav', btn.dataset.tab === currentPage || (currentPage === 'index' && btn.dataset.tab === 'home'));
+        });
+
+        // Mobile Menu Logic
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            sidebar.classList.remove('-translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            sidebar.classList.add('-translate-x-full');
+        }
+
+        menuToggle?.addEventListener('click', openMobileMenu);
+        menuClose?.addEventListener('click', closeMobileMenu);
+
+        // Form Submit Handler
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

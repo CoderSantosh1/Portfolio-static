@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/TECHDO~1/AppData/Local/Temp/claude/D--Santosh-design-Portflio/ae3dceea-e94f-4c6e-9f21-7b7712fdc9dd/scratchpad/serve.js", "D:/Santosh-design/Portflio", "5510"],
+      "port": 5510
+    }
+  ]
+}

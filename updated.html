@@ -1,0 +1,1842 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S. Kumar | Home</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sidebarBg: '#121418',
+                        darkBg: '#0b0e14',
+                        cardBg: '#161b22',
+                        accent: '#e29d62',
+                        accentGlow: 'rgba(226, 157, 98, 0.15)',
+                    },
+                    fontFamily: {
+                        signature: ['"Great Vibes"', 'cursive'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #e6edf3;
+        }
+        .signature-font {
+            font-family: 'Great Vibes', cursive;
+        }
+        .tab-page {
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .tab-page.active-page {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-btn.active-nav {
+            color: #e29d62;
+            background-color: rgba(226, 157, 98, 0.1);
+            border-left: 3px solid #e29d62;
+            font-weight: 600;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0e14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262d;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #30363d;
+        }
+    
+/* =========================================
+   LIGHT THEME OVERRIDE
+   Layout and animations remain unchanged
+========================================= */
+
+:root {
+    color-scheme: light;
+
+    --light-bg: #f8fafc;
+    --light-sidebar: #ffffff;
+    --light-card: #ffffff;
+    --light-text: #0f172a;
+    --light-muted: #64748b;
+    --light-border: #e2e8f0;
+    --light-hover: #f1f5f9;
+}
+
+/* Main page */
+html,
+body {
+    background-color: var(--light-bg) !important;
+    color: var(--light-text) !important;
+}
+
+/* Sidebar and mobile header */
+.bg-sidebarBg {
+    background-color: var(--light-sidebar) !important;
+}
+
+header,
+#sidebar {
+    background-color: var(--light-sidebar) !important;
+    border-color: var(--light-border) !important;
+}
+
+/* Main content background */
+.bg-darkBg {
+    background-color: var(--light-bg) !important;
+}
+
+/* All cards */
+.bg-cardBg {
+    background-color: var(--light-card) !important;
+}
+
+/* Text colors */
+.text-white {
+    color: var(--light-text) !important;
+}
+
+.text-slate-100,
+.text-slate-200 {
+    color: #1e293b !important;
+}
+
+.text-slate-300 {
+    color: #334155 !important;
+}
+
+.text-slate-400 {
+    color: #64748b !important;
+}
+
+.text-slate-500 {
+    color: #64748b !important;
+}
+
+/* Borders */
+.border-slate-700,
+.border-slate-800,
+.border-slate-800\/80 {
+    border-color: var(--light-border) !important;
+}
+
+/* Dark grey surfaces */
+.bg-slate-800,
+.bg-slate-800\/70,
+.bg-slate-800\/80,
+.bg-slate-900,
+.bg-slate-900\/80 {
+    background-color: #f1f5f9 !important;
+}
+
+/* Hover surfaces */
+.hover\:bg-white\/5:hover {
+    background-color: #f1f5f9 !important;
+}
+
+.hover\:bg-slate-700:hover {
+    background-color: #e2e8f0 !important;
+}
+
+/* Navigation */
+.nav-btn {
+    color: #475569 !important;
+}
+
+.nav-btn:hover {
+    color: #b77932 !important;
+}
+
+.nav-btn.active-nav {
+    color: #b77932 !important;
+    background-color: #fff7ed !important;
+    border-left-color: #d97706 !important;
+}
+
+/* Inputs */
+input,
+textarea {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8 !important;
+}
+
+/* Project images: keep image appearance unchanged */
+#tab-work img {
+    background-color: #f1f5f9;
+}
+
+/* Home tech card */
+#tab-home .home-floating-card {
+    background-color: rgba(255, 255, 255, 0.94) !important;
+    border-color: #e2e8f0 !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
+}
+
+#tab-home .home-floating-card .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Home service cards */
+#tab-home .home-service-card,
+#tab-home .home-stat-card,
+#tab-home .home-tech-strip {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Technology pills */
+#tab-home .home-tech-pill,
+#tab-home .home-tag {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+    color: #475569 !important;
+}
+
+/* Featured project CTA */
+#tab-home .home-project-cta {
+    background: linear-gradient(
+        120deg,
+        #ffffff,
+        #fffaf3 55%,
+        #fff7ed
+    ) !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Timeline */
+.about-timeline-item h4,
+.about-detail .text-slate-200 {
+    color: #1e293b !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar-track {
+    background: #f8fafc !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8 !important;
+}
+
+/* Preserve amber accent and all existing animations */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+
+
+        /* HOME ONLY: full-bleed hero while preserving every other tab */
+        main:has(#tab-home.active-page) {
+            padding: 0 !important;
+            min-width: 0;
+            min-height: 0;
+        }
+
+        main:has(#tab-home.active-page) > div.max-w-5xl {
+            width: 100%;
+            max-width: none !important;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        #tab-home.minimal-home {
+            width: 100%;
+            min-width: 0;
+            min-height: 100%;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: #d1d1d6;
+        }
+
+        #tab-home.minimal-home.active-page {
+            display: block;
+        }
+
+        #tab-home.active-page .minimal-hero {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            border-radius: 0;
+            background-color: #bfc0c7;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* Keep the light theme palette on the sidebar and other sections. */
+        #tab-home .hero-name,
+        #tab-home .hero-role {
+            color: #ffffff;
+        }
+
+        @media (max-width: 767px) {
+            main:has(#tab-home.active-page) {
+                height: auto;
+                flex: 1 1 auto;
+                overflow-y: auto;
+            }
+
+            #tab-home.active-page .minimal-hero {
+                min-height: calc(100dvh - 64px);
+            }
+        }
+
+    </style>
+<style>.tab-page{display:block!important;opacity:1!important;transform:none!important}</style></head>
+<body class="h-full bg-darkBg text-slate-100 antialiased overflow-hidden flex flex-col md:flex-row">
+
+    <!-- MOBILE HEADER / TOP BAR -->
+    <header class="md:hidden flex items-center justify-between px-5 py-4 bg-sidebarBg border-b border-slate-800 shrink-0 z-40">
+        <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Avatar" class="w-9 h-9 rounded-full object-cover border border-amber-500/50">
+            <span class="signature-font text-2xl text-amber-400">S. Kumar</span>
+        </div>
+        <button id="mobile-menu-toggle" class="p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-amber-400">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+    </header>
+
+    <!-- LEFT FIXED SIDEBAR NAVIGATION -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-72 bg-sidebarBg border-r border-slate-800/80 flex flex-col justify-between items-center py-8 px-4 z-50 transition-transform duration-300 -translate-x-full md:translate-x-0 shrink-0 h-full ">
+        
+        <!-- Mobile Close Button -->
+        <button id="mobile-menu-close" class="md:hidden absolute top-4 right-4 text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <!-- Sidebar Top Header -->
+        <div class="flex flex-col items-center text-center w-full mt-2 md:mt-0">
+            <div class="relative group">
+                <div class="w-28 h-28 rounded-full p-1 border-2 border-amber-500/40 group-hover:border-amber-400 transition-colors shadow-xl">
+                    <img src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png?auto=format&fit=crop&w=400&q=80" alt="S. Kumar" class="w-full h-full rounded-full object-cover">
+                </div>
+                <span class="absolute bottom-1 right-2 w-3.5 h-3.5 bg-emerald-500 border-2 border-sidebarBg rounded-full"></span>
+            </div>
+
+            <h1 class="signature-font text-3xl sm:text-4xl text-amber-400 mt-4 tracking-wide">S. Kumar</h1>
+            <p class="text-[11px] text-slate-400 font-mono mt-1 tracking-wider uppercase">Senior UI/UX & Web Developer</p>
+        </div>
+
+        <!-- Sidebar Middle Vertical Menu Links -->
+        <nav class="w-full space-y-1 my-6">
+            <a href="index.html" data-tab="home" class="nav-btn active-nav w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="home" class="w-4 h-4"></i>
+                <span>Home</span>
+            </a>
+            <a href="about.html" data-tab="about" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="user" class="w-4 h-4"></i>
+                <span>About</span>
+            </a>
+            <a href="services.html" data-tab="services" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="layers" class="w-4 h-4"></i>
+                <span>Services</span>
+            </a>
+            <a href="work.html" data-tab="work" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="briefcase" class="w-4 h-4"></i>
+                <span>Work / Projects</span>
+            </a>
+            <a href="skills.html" data-tab="skills" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="cpu" class="w-4 h-4"></i>
+                <span>Skills & Stack</span>
+            </a>
+            <a href="experience.html" data-tab="experience" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="history" class="w-4 h-4"></i>
+                <span>Experience</span>
+            </a>
+            <a href="education.html" data-tab="education" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                <span>Education & Certs</span>
+            </a>
+            <a href="reviews.html" data-tab="reviews" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="star" class="w-4 h-4"></i>
+                <span>Reviews</span>
+            </a>
+            <!-- <button onclick="switchTab('blog')" data-tab="blog" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="newspaper" class="w-4 h-4"></i>
+                <span>Blog</span>
+            </button> -->
+            <a href="contact.html" data-tab="contact" class="nav-btn w-full flex items-center gap-3.5 px-4 py-2.5 rounded-r-lg text-xs text-slate-300 hover:text-amber-400 hover:bg-white/5 transition-all text-left">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+
+        <!-- Sidebar Bottom Footer -->
+        <div class="w-full flex flex-col items-center pt-4 border-t border-slate-800/80">
+            <div class="flex items-center gap-3 mb-3 text-slate-400">
+                <a href="#" class="hover:text-amber-400 transition-colors"><i data-lucide="github" class="w-4 h-4"></i></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="hover:text-amber-400 transition-colors"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+            </div>
+            <span class="w-8 h-[2px] bg-amber-500/40 rounded-full mb-2"></span>
+            <p class="text-[10px] text-slate-500 text-center font-mono">
+                Copyright © 2026 Carmen.<br/>All rights reserved.
+            </p>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA (TABBED / SINGLE PAGE APP EFFECT) -->
+    <main class="flex-1 h-full overflow-y-auto p-6 lg:p-12">
+        <div class="max-w-5xl mx-auto">
+
+           
+
+
+<!-- PAGE 1: HOME -->
+
+
+<!-- ===== HOME HERO SECTION ===== -->
+<section id="tab-home" class="tab-page active-page minimal-home">
+
+  <div class="minimal-hero hero-simple">
+
+    <!-- Background Image -->
+    <div class="hero-animated-bg" aria-hidden="true">
+      <div class="hero-background-image"></div>
+      <div class="hero-background-overlay"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="simple-hero-content">
+
+      <!-- Profile -->
+      <div class="simple-profile-wrap">
+        <div class="profile-ring"></div>
+
+        <div class="simple-profile">
+          <img
+            src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png"
+            alt="Santosh Kumar"
+          />
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <p class="simple-greeting">HELLO, I'M</p>
+
+      <h1>SANTOSH KUMAR<span>.</span></h1>
+
+      <h2>
+        <span id="typed-role">Frontend Developer</span>
+        <span class="typing-cursor">|</span>
+      </h2>
+
+      <!-- Actions -->
+      <div class="simple-hero-actions">
+        <button
+          onclick="switchTab('work')"
+          type="button"
+        >
+          View My Work 
+        </button>
+
+        <button
+          onclick="switchTab('contact')"
+          type="button"
+        >
+          Contact Me
+        </button>
+      </div>
+
+    </div>
+
+    
+  </div>
+<style>
+  /* ========================================
+     HOME HERO
+  ======================================== */
+
+  #tab-home .hero-simple {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding: 60px 22px;
+    overflow: hidden;
+
+    background: #071321;
+    color: #ffffff;
+
+    box-sizing: border-box;
+  }
+
+  #tab-home .hero-simple *,
+  #tab-home .hero-simple *::before,
+  #tab-home .hero-simple *::after {
+    box-sizing: border-box;
+  }
+
+  /* ========================================
+     STATIC BACKGROUND IMAGE
+     Actual path: public/image/home-storm-bg.png
+  ======================================== */
+
+  #tab-home .hero-animated-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    overflow: hidden;
+    pointer-events: none;
+    background: #071321;
+  }
+
+  #tab-home .hero-background-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/image/home-storm-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  /* Keep the image visible */
+  #tab-home .hero-background-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: rgba(3, 13, 25, 0.12);
+    pointer-events: none;
+  }
+
+  /* ========================================
+     HERO CONTENT
+  ======================================== */
+
+  #tab-home .simple-hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    text-align: center;
+  }
+
+  /* ========================================
+     PROFILE IMAGE
+  ======================================== */
+
+  #tab-home .simple-profile-wrap {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 151px;
+    height: 151px;
+
+    margin: 0 auto 25px;
+  }
+
+  #tab-home .profile-ring {
+    position: absolute;
+    inset: 0;
+
+    border: 1.5px dashed rgba(160, 220, 255, 0.85);
+    border-radius: 50%;
+  }
+
+  #tab-home .simple-profile {
+    position: relative;
+    z-index: 1;
+
+    width: 130px;
+    height: 130px;
+    margin: 0;
+
+    overflow: hidden;
+
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+
+    background: #d9e5ed;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  }
+
+  #tab-home .simple-profile img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* ========================================
+     HEADING AND TEXT
+  ======================================== */
+
+  #tab-home .simple-greeting {
+    margin: 0 0 10px;
+
+    color: #b9e5ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+  }
+
+  #tab-home .simple-hero-content h1 {
+    margin: 0;
+
+    color: #ffffff;
+    font-size: clamp(32px, 6vw, 66px);
+    line-height: 1.15;
+    font-weight: 850;
+    letter-spacing: -2px;
+
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  #tab-home .simple-hero-content h1 span {
+    color: #91d8ff;
+  }
+
+  #tab-home .simple-hero-content h2 {
+    min-height: 32px;
+    margin: 15px 0 0;
+
+    color: #e0eaf2;
+    font-size: clamp(17px, 2.5vw, 23px);
+    font-weight: 500;
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  #tab-home .simple-hero-content #typed-role {
+    color: #a8dfff;
+  }
+
+  #tab-home .simple-hero-content .typing-cursor {
+    color: #ffffff;
+    animation: simpleCursorBlink 0.8s step-end infinite;
+  }
+
+  /* ========================================
+     ACTION BUTTONS
+  ======================================== */
+
+  #tab-home .simple-hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 28px;
+  }
+
+  #tab-home .simple-hero-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 46px;
+    padding: 0 22px;
+
+    border: 1px solid rgba(220, 239, 255, 0.85);
+    border-radius: 4px;
+
+    background: rgba(7, 19, 33, 0.55);
+    color: #ffffff;
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  #tab-home .simple-hero-actions button:first-child {
+    background: #d4e8f5;
+    border-color: #d4e8f5;
+    color: #071321;
+  }
+
+  #tab-home .simple-hero-actions button:hover {
+    transform: translateY(-3px);
+
+    border-color: #d4e8f5;
+    background: #d4e8f5;
+    color: #071321;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* ========================================
+     SCROLL BUTTON
+  ======================================== */
+
+  #tab-home .simple-scroll {
+    position: absolute;
+    z-index: 3;
+
+    bottom: 22px;
+    left: 50%;
+
+    width: 38px;
+    height: 38px;
+
+    transform: translateX(-50%);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+
+    background: rgba(7, 19, 33, 0.45);
+    color: #ffffff;
+
+    font-size: 19px;
+    cursor: pointer;
+
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  #tab-home .simple-scroll:hover {
+    background: #d4e8f5;
+    color: #071321;
+  }
+
+  /* ========================================
+     TYPING CURSOR
+  ======================================== */
+
+  @keyframes simpleCursorBlink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  /* ========================================
+     TABLET
+  ======================================== */
+
+  @media (max-width: 768px) {
+    #tab-home .hero-simple {
+      padding: 55px 20px 65px;
+    }
+
+    #tab-home .hero-background-image {
+      background-position: center center;
+    }
+
+    #tab-home .hero-background-overlay {
+      background: rgba(3, 13, 25, 0.2);
+    }
+  }
+
+  /* ========================================
+     MOBILE
+  ======================================== */
+
+  @media (max-width: 480px) {
+    #tab-home .hero-simple {
+      padding: 50px 18px 65px;
+    }
+
+    #tab-home .simple-profile-wrap {
+      width: 131px;
+      height: 131px;
+    }
+
+    #tab-home .simple-profile {
+      width: 112px;
+      height: 112px;
+    }
+
+    #tab-home .simple-hero-content h1 {
+      font-size: clamp(30px, 8.5vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    #tab-home .simple-hero-content h2 {
+      font-size: 17px;
+    }
+
+    #tab-home .simple-hero-actions {
+      gap: 10px;
+    }
+
+    #tab-home .simple-hero-actions button {
+      min-height: 44px;
+      padding: 0 16px;
+    }
+  }
+
+  /* ========================================
+     REDUCED MOTION
+  ======================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    #tab-home .simple-hero-content .typing-cursor {
+      animation: none;
+    }
+
+    #tab-home .simple-hero-actions button,
+    #tab-home .simple-scroll {
+      transition: none;
+    }
+  }
+</style>
+
+
+
+
+
+<!-- PREMIUM ABOUT SECTION -->
+<section id="home-about-preview" class="home-about-preview">
+
+  <div class="about-preview-bg" aria-hidden="true">
+    <span class="about-bg-orb orb-a"></span>
+    <span class="about-bg-orb orb-b"></span>
+    <div class="about-bg-grid"></div>
+  </div>
+
+  <div class="home-about-inner">
+
+    <!-- LEFT: IMAGE -->
+    <div class="home-about-visual">
+      <div class="about-image-label">
+        <span class="about-status-dot"></span>
+        FRONTEND DEVELOPER
+      </div>
+
+      <div class="about-image-frame">
+        <div class="about-image-accent"></div>
+
+        <img
+          src="https://portflio-santosh.pages.dev/assets/Myprotflio-ms2eVcYy.png"
+          alt="Santosh Kumar - Frontend Developer"
+          loading="lazy"
+        />
+
+        <div class="about-image-bottom">
+          <span>SK.</span>
+          <span>CREATIVE DEVELOPER</span>
+        </div>
+      </div>
+
+      <span class="about-visual-index">01 / ABOUT</span>
+    </div>
+
+    <!-- RIGHT: CONTENT -->
+    <div class="home-about-copy">
+
+      <div class="about-section-label">
+        <span></span>
+        GET TO KNOW ME
+      </div>
+
+      <h2>
+        Turning ideas<br />
+        into <span>digital</span><br />
+        experiences.
+      </h2>
+
+      <p class="about-description">
+        I'm Santosh Kumar, a frontend developer focused on building
+        clean, responsive and engaging web experiences.
+      </p>
+
+      <div class="about-skills">
+        <span>React.js</span>
+        <span>Next.js</span>
+        <span>TypeScript</span>
+        <span>Tailwind CSS</span>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===== LIGHT PREMIUM ABOUT SECTION ===== */
+.home-about-preview {
+  --about-gold: #b7803b;
+  --about-bg: #faf8f3;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 100px 6%;
+  overflow: hidden;
+  background: var(--about-bg);
+  color: #292821;
+  box-sizing: border-box;
+}
+
+.home-about-preview *,
+.home-about-preview *::before,
+.home-about-preview *::after {
+  box-sizing: border-box;
+}
+
+/* ===== BACKGROUND ANIMATION ===== */
+.home-about-preview .about-preview-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-about-preview .about-bg-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .28;
+  background-image:
+    linear-gradient(#b8a98d18 1px, transparent 1px),
+    linear-gradient(90deg, #b8a98d18 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 35%,
+    #000 80%,
+    transparent
+  );
+}
+
+.home-about-preview .about-bg-orb {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: .35;
+  will-change: transform;
+  animation: aboutOrbFloat 12s ease-in-out infinite alternate;
+}
+
+.home-about-preview .orb-a {
+  top: -180px;
+  right: -50px;
+  background: #e9c58f;
+}
+
+.home-about-preview .orb-b {
+  bottom: -220px;
+  left: 20%;
+  background: #c4d8cb;
+  animation-delay: -5s;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.home-about-preview .home-about-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(45px, 8vw, 110px);
+}
+
+/* ===== IMAGE SIDE ===== */
+.home-about-preview .home-about-visual {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 24px 18px 32px 0;
+  animation: aboutRevealLeft .8s ease both;
+}
+
+.home-about-preview .about-image-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
+  color: #777469;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+}
+
+.home-about-preview .about-status-dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #78a66f;
+  box-shadow: 0 0 12px #78a66f70;
+  animation: aboutDotPulse 2s ease-in-out infinite;
+}
+
+.home-about-preview .about-image-frame {
+  position: relative;
+  height: 460px;
+  overflow: visible;
+  background: #eee9df;
+  border: 1px solid #e8e0d3;
+  box-shadow: 0 18px 45px rgba(67, 53, 31, .09);
+}
+
+.home-about-preview .about-image-frame::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, .75);
+  pointer-events: none;
+  transition: inset .4s ease, border-color .4s ease;
+}
+
+.home-about-preview .about-image-frame:hover::before {
+  inset: 19px;
+  border-color: #b7803b99;
+}
+
+.home-about-preview .about-image-accent {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  border-top: 2px solid var(--about-gold);
+  border-right: 2px solid var(--about-gold);
+  pointer-events: none;
+  transition: width .4s ease, height .4s ease;
+}
+
+.home-about-preview .about-image-frame:hover .about-image-accent {
+  width: 125px;
+  height: 125px;
+}
+
+.home-about-preview .about-image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(.95);
+  transition: transform .6s ease, filter .6s ease;
+}
+
+.home-about-preview .about-image-frame:hover img {
+  transform: scale(1.035);
+  filter: saturate(1);
+}
+
+.home-about-preview .about-image-bottom {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 24px;
+  background: linear-gradient(
+    to top,
+    rgba(31, 29, 24, .78),
+    transparent
+  );
+}
+
+.home-about-preview .about-image-bottom span:first-child {
+  color: #e7bd7c;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.home-about-preview .about-image-bottom span:last-child {
+  color: #fff;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.home-about-preview .about-visual-index {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #918b7e;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* ===== CONTENT SIDE ===== */
+.home-about-preview .home-about-copy {
+  min-width: 0;
+  animation: aboutRevealRight .8s ease both;
+  animation-delay: .12s;
+}
+
+.home-about-preview .about-section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  color: var(--about-gold);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.home-about-preview .about-section-label span {
+  width: 32px;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--about-gold);
+}
+
+.home-about-preview .home-about-copy h2 {
+  margin: 0;
+  color: #292821;
+  font-size: clamp(36px, 4.5vw, 62px);
+  line-height: 1.12;
+  font-weight: 750;
+  letter-spacing: -2px;
+}
+
+.home-about-preview .home-about-copy h2 span {
+  color: var(--about-gold);
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.home-about-preview .about-description {
+  max-width: 470px;
+  margin: 25px 0;
+  color: #77756d;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* ===== SKILL CHIPS ===== */
+.home-about-preview .about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0 0 34px;
+}
+
+.home-about-preview .about-skills span {
+  padding: 9px 13px;
+  border: 1px solid #e6e0d5;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .7);
+  color: #555248;
+  font-size: 11px;
+  transition:
+    border-color .25s ease,
+    color .25s ease,
+    background .25s ease,
+    transform .25s ease;
+}
+
+.home-about-preview .about-skills span:hover {
+  transform: translateY(-3px);
+  border-color: var(--about-gold);
+  background: #fff7e9;
+  color: #986722;
+}
+
+/* ===== BUTTON ===== */
+.home-about-preview .about-bottom-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.home-about-preview .home-about-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--about-gold);
+  border-radius: 3px;
+  background: var(--about-gold);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.home-about-preview .home-about-link:hover {
+  transform: translateY(-3px);
+  background: transparent;
+  color: #986722;
+  box-shadow: 0 8px 22px rgba(183, 128, 59, .12);
+}
+
+.home-about-preview .home-about-link span {
+  font-size: 17px;
+}
+
+.home-about-preview .about-signature {
+  color: #918b7e;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes aboutRevealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutRevealRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aboutOrbFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-45px, 35px) scale(1.2);
+  }
+}
+
+@keyframes aboutDotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 850px) {
+  .home-about-preview {
+    padding: 75px 5%;
+  }
+
+  .home-about-preview .home-about-inner {
+    gap: 38px;
+  }
+
+  .home-about-preview .about-image-frame {
+    height: 390px;
+  }
+
+  .home-about-preview .home-about-copy h2 {
+    font-size: clamp(34px, 5vw, 48px);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .home-about-preview {
+    padding: 58px 22px;
+  }
+
+  .home-about-preview .home-about-inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .home-about-preview .home-about-visual {
+    max-width: 360px;
+  }
+
+  .home-about-preview .about-image-frame {
+    height: 380px;
+  }
+
+  .home-about-preview .home-about-copy h2 {
+    font-size: clamp(38px, 10vw, 52px);
+    letter-spacing: -1.5px;
+  }
+
+  .home-about-preview .about-description {
+    font-size: 13px;
+  }
+
+  .home-about-preview .about-signature {
+    display: none;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  .home-about-preview *,
+  .home-about-preview *::before,
+  .home-about-preview *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+
+
+<!-- FEATURED PROJECTS SECTION -->
+<section id="home-featured-projects" class="home-projects">
+  <div class="home-projects-container">
+
+    <div class="home-projects-heading">
+      <div>
+        <span class="home-projects-eyebrow">MY RECENT WORK</span>
+        <h2>Featured <span>Projects</span></h2>
+        <p>A few projects showcasing my frontend development skills.</p>
+      </div>
+
+      <button
+        type="button"
+        class="home-projects-view-all"
+        onclick="switchTab('work')"
+      >
+        View All Projects 
+      </button>
+    </div>
+
+    <div class="home-projects-grid">
+
+      <!-- Project 1 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+            alt="Analytics dashboard project"
+            loading="lazy"
+          />
+          <span class="home-project-number">01</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">REACT.JS · TAILWIND CSS</span>
+          <h3>Analytics Dashboard</h3>
+          <p>A clean dashboard interface for presenting data, metrics and visual insights.</p>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
+            alt="Business analytics website"
+            loading="lazy"
+          />
+          <span class="home-project-number">02</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">NEXT.JS · TYPESCRIPT</span>
+          <h3>Business Website</h3>
+          <p>A responsive website focused on clear content, modern layouts and usability.</p>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+            alt="E-commerce shopping interface"
+            loading="lazy"
+          />
+          <span class="home-project-number">03</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">REACT.JS · API INTEGRATION</span>
+          <h3>E-commerce UI</h3>
+          <p>A product-focused shopping interface with reusable components and responsive design.</p>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="home-project-card">
+        <div class="home-project-image">
+          <img
+            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+            alt="Web application interface"
+            loading="lazy"
+          />
+          <span class="home-project-number">04</span>
+        </div>
+        <div class="home-project-info">
+          <span class="home-project-tech">JAVASCRIPT · CSS</span>
+          <h3>Interactive Web App</h3>
+          <p>An interactive web experience built around intuitive navigation and a simple user interface.</p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="home-projects-bottom">
+      <button
+        type="button"
+        class="home-projects-bottom-btn"
+        onclick="switchTab('work')"
+      >
+        Explore All Projects 
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Featured Projects - scoped styles */
+  #home-featured-projects {
+    width: 100%;
+    padding: 70px 5%;
+    background: #f8f9fb;
+    color: #171717;
+    box-sizing: border-box;
+  }
+
+  #home-featured-projects *,
+  #home-featured-projects *::before,
+  #home-featured-projects *::after {
+    box-sizing: border-box;
+  }
+
+  #home-featured-projects .home-projects-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  #home-featured-projects .home-projects-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  #home-featured-projects .home-projects-eyebrow {
+    color: #a87526;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
+
+  #home-featured-projects .home-projects-heading h2 {
+    margin: 10px 0;
+    font-size: clamp(28px, 3.5vw, 38px);
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  #home-featured-projects .home-projects-heading h2 span {
+    color: #c58a2b;
+  }
+
+  #home-featured-projects .home-projects-heading p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  #home-featured-projects .home-projects-view-all {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border: 1px solid #dedede;
+    border-radius: 30px;
+    background: #fff;
+    color: #222;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+
+  #home-featured-projects .home-projects-view-all:hover {
+    background: #171717;
+    border-color: #171717;
+    color: #fff;
+  }
+
+  #home-featured-projects .home-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  #home-featured-projects .home-project-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e9e9e9;
+    border-radius: 14px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #home-featured-projects .home-project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+  }
+
+  #home-featured-projects .home-project-image {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    background: #ececec;
+  }
+
+  #home-featured-projects .home-project-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  #home-featured-projects .home-project-card:hover .home-project-image img {
+    transform: scale(1.05);
+  }
+
+  #home-featured-projects .home-project-number {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #222;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  #home-featured-projects .home-project-info {
+    padding: 22px;
+  }
+
+  #home-featured-projects .home-project-tech {
+    color: #b17b2b;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  #home-featured-projects .home-project-info h3 {
+    margin: 10px 0 8px;
+    color: #171717;
+    font-size: 19px;
+    font-weight: 750;
+  }
+
+  #home-featured-projects .home-project-info p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  #home-featured-projects .home-projects-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
+
+  #home-featured-projects .home-projects-bottom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 22px;
+    border: 1px solid #171717;
+    border-radius: 30px;
+    background: #171717;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+  }
+
+  #home-featured-projects .home-projects-bottom-btn:hover {
+    background: #c58a2b;
+    border-color: #c58a2b;
+  }
+
+  /* Tablet */
+  @media (max-width: 760px) {
+    #home-featured-projects {
+      padding: 52px 4%;
+    }
+
+    #home-featured-projects .home-projects-heading {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    #home-featured-projects .home-projects-image {
+      height: 200px;
+    }
+
+    #home-featured-projects .home-project-image {
+      height: 200px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 520px) {
+    #home-featured-projects {
+      padding: 42px 18px;
+    }
+
+    #home-featured-projects .home-projects-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    #home-featured-projects .home-project-image {
+      height: 210px;
+    }
+
+    #home-featured-projects .home-project-info {
+      padding: 18px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #home-featured-projects *,
+    #home-featured-projects *::before,
+    #home-featured-projects *::after {
+      transition: none !important;
+    }
+  }
+</style>
+</section>
+            <!-- HOMEPAGE OVERVIEW SECTIONS -->
+            <section class="px-2 py-14 md:px-6" aria-labelledby="home-impact-title">
+                <div class="mb-8 text-center">
+                    <span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500">// At a glance</span>
+                    <h2 id="home-impact-title" class="mt-2 text-3xl font-extrabold text-slate-900">Building useful digital experiences</h2>
+                </div>
+                <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center"><p class="text-3xl font-extrabold text-amber-600">6+</p><p class="mt-2 text-xs text-slate-500">Years building for web</p></div>
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center"><p class="text-3xl font-extrabold text-amber-600">12</p><p class="mt-2 text-xs text-slate-500">Product platforms supported</p></div>
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center"><p class="text-3xl font-extrabold text-amber-600">UI + UX</p><p class="mt-2 text-xs text-slate-500">Design to implementation</p></div>
+                    <div class="rounded-2xl border border-slate-200 bg-white p-6 text-center"><p class="text-3xl font-extrabold text-amber-600">Web</p><p class="mt-2 text-xs text-slate-500">Frontend and full stack</p></div>
+                </div>
+            </section>
+
+            <section class="px-2 py-14 md:px-6" aria-labelledby="home-services-title">
+                <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+                    <div><span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500">// What I do</span><h2 id="home-services-title" class="mt-2 text-3xl font-extrabold text-slate-900">Services</h2><p class="mt-2 max-w-xl text-sm text-slate-500">From early design decisions to a polished, production-ready product.</p></div>
+                    <a href="services.html" class="text-sm font-semibold text-amber-700 hover:text-amber-500">Explore services →</a>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6"><i data-lucide="panels-top-left" class="mb-4 h-6 w-6 text-amber-500"></i><h3 class="font-bold text-slate-900">Web development</h3><p class="mt-2 text-sm leading-6 text-slate-500">Responsive React and Next.js websites built for speed and maintainability.</p></article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6"><i data-lucide="smartphone" class="mb-4 h-6 w-6 text-amber-500"></i><h3 class="font-bold text-slate-900">UI / UX implementation</h3><p class="mt-2 text-sm leading-6 text-slate-500">Thoughtful interfaces that translate design systems into accessible experiences.</p></article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6"><i data-lucide="zap" class="mb-4 h-6 w-6 text-amber-500"></i><h3 class="font-bold text-slate-900">Performance & support</h3><p class="mt-2 text-sm leading-6 text-slate-500">Performance tuning, API integration, ongoing maintenance and improvements.</p></article>
+                </div>
+            </section>
+
+            <section class="px-2 py-14 md:px-6" aria-labelledby="home-stack-title">
+                <div class="mb-8 text-center"><span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500">// Tools I use</span><h2 id="home-stack-title" class="mt-2 text-3xl font-extrabold text-slate-900">Technology & skills</h2><p class="mt-2 text-sm text-slate-500">A practical stack for modern product development.</p></div>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">React</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Next.js</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">TypeScript</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">JavaScript</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Tailwind CSS</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Node.js</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">REST APIs</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Figma</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Git</span><span class="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700">Accessibility</span>
+                </div>
+                <p class="mt-6 text-center"><a href="skills.html" class="text-sm font-semibold text-amber-700 hover:text-amber-500">See all skills →</a></p>
+            </section>
+
+            <section class="px-2 py-14 md:px-6" aria-labelledby="home-journey-title">
+                <div class="mb-8"><span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500">// The journey</span><h2 id="home-journey-title" class="mt-2 text-3xl font-extrabold text-slate-900">Experience & education</h2></div>
+                <div class="grid gap-6 md:grid-cols-2">
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6"><div class="mb-4 flex items-center gap-3"><span class="rounded-xl bg-amber-50 p-3 text-amber-600"><i data-lucide="briefcase-business" class="h-5 w-5"></i></span><span class="text-xs font-mono text-amber-600">2023 — Present</span></div><h3 class="text-lg font-bold text-slate-900">Lead Frontend Engineer</h3><p class="mt-1 text-sm text-slate-500">TechPulse Corp</p><p class="mt-3 text-sm leading-6 text-slate-600">Led development of a shared design system used across multiple product platforms.</p><a href="experience.html" class="mt-4 inline-block text-sm font-semibold text-amber-700">More experience →</a></article>
+                    <article class="rounded-2xl border border-slate-200 bg-white p-6"><div class="mb-4 flex items-center gap-3"><span class="rounded-xl bg-amber-50 p-3 text-amber-600"><i data-lucide="graduation-cap" class="h-5 w-5"></i></span><span class="text-xs font-mono text-amber-600">2015 — 2019</span></div><h3 class="text-lg font-bold text-slate-900">B.S. Computer Science</h3><p class="mt-1 text-sm text-slate-500">UC Berkeley</p><p class="mt-3 text-sm leading-6 text-slate-600">Formal training in computer science, software engineering and problem solving.</p><a href="education.html" class="mt-4 inline-block text-sm font-semibold text-amber-700">Education & certifications →</a></article>
+                </div>
+            </section>
+
+            <section class="px-2 py-14 md:px-6" aria-labelledby="home-testimonials-title">
+                <div class="mb-8 flex flex-wrap items-end justify-between gap-4"><div><span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-500">// Kind words</span><h2 id="home-testimonials-title" class="mt-2 text-3xl font-extrabold text-slate-900">What collaborators say</h2></div><a href="reviews.html" class="text-sm font-semibold text-amber-700 hover:text-amber-500">All reviews →</a></div>
+                <div class="grid gap-4 md:grid-cols-2">
+                    <figure class="rounded-2xl border border-slate-200 bg-white p-6"><div class="mb-4 flex gap-1 text-amber-500" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="text-sm leading-6 text-slate-600">“The code quality and design polish were exceptional, and the web app arrived ahead of schedule.”</blockquote><figcaption class="mt-5 text-sm font-bold text-slate-900">Sarah Jenkins <span class="font-normal text-slate-500">· Founder, SaaSify</span></figcaption></figure>
+                    <figure class="rounded-2xl border border-slate-200 bg-white p-6"><div class="mb-4 flex gap-1 text-amber-500" aria-label="5 out of 5 stars">★★★★★</div><blockquote class="text-sm leading-6 text-slate-600">“Collaborating was seamless. A creative, thoughtful and reliable engineer.”</blockquote><figcaption class="mt-5 text-sm font-bold text-slate-900">David Ross <span class="font-normal text-slate-500">· VP Product</span></figcaption></figure>
+                </div>
+            </section>
+
+            <section class="mx-2 my-12 rounded-3xl bg-slate-900 px-6 py-12 text-center text-white md:mx-6 md:px-12">
+                <span class="text-xs font-mono uppercase tracking-[0.25em] text-amber-400">// Have a project in mind?</span><h2 class="mt-3 text-3xl font-extrabold">Let’s build something great.</h2><p class="mx-auto mt-3 max-w-xl text-sm leading-6 text-slate-300">Tell me what you’re working on. I’d be glad to talk through the next steps.</p><a href="contact.html" class="mt-7 inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-bold text-slate-950 transition hover:bg-amber-400">Get in touch <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+            </section>
+        </div>
+    </main>
+    <script>
+        function switchTab(tab) {
+            const pages = { home: 'index.html', about: 'about.html', services: 'services.html', work: 'work.html', skills: 'skills.html', experience: 'experience.html', education: 'education.html', reviews: 'reviews.html', contact: 'contact.html' };
+            if (pages[tab]) window.location.href = pages[tab];
+        }
+
+        // Lucide Icons Initialization
+        lucide.createIcons();
+
+        // Home testimonials: three pages, two reviews per page, with autoplay.
+        (() => {
+            const carousel = document.querySelector('[data-testimonial-carousel]');
+            if (!carousel) return;
+
+            const pages = [...carousel.querySelectorAll('[data-testimonial-page]')];
+            const dots = [...carousel.querySelectorAll('[data-testimonial-dot]')];
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let activePage = 0;
+            let autoplayTimer;
+
+            const showPage = (index) => {
+                activePage = (index + pages.length) % pages.length;
+                pages.forEach((page, pageIndex) => {
+                    page.hidden = pageIndex !== activePage;
+                });
+                dots.forEach((dot, dotIndex) => {
+                    const isActive = dotIndex === activePage;
+                    dot.setAttribute('aria-current', String(isActive));
+                    dot.classList.toggle('bg-amber-400', isActive);
+                    dot.classList.toggle('bg-slate-600', !isActive);
+                });
+            };
+
+            const stopAutoplay = () => window.clearInterval(autoplayTimer);
+            const startAutoplay = () => {
+                stopAutoplay();
+                if (!reduceMotion && !document.hidden) {
+                    autoplayTimer = window.setInterval(() => showPage(activePage + 1), 6000);
+                }
+            };
+
+            carousel.querySelector('[data-testimonial-prev]')?.addEventListener('click', () => {
+                showPage(activePage - 1);
+                startAutoplay();
+            });
+            carousel.querySelector('[data-testimonial-next]')?.addEventListener('click', () => {
+                showPage(activePage + 1);
+                startAutoplay();
+            });
+            dots.forEach((dot) => dot.addEventListener('click', () => {
+                showPage(Number(dot.dataset.testimonialDot));
+                startAutoplay();
+            }));
+
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+            carousel.addEventListener('focusin', stopAutoplay);
+            carousel.addEventListener('focusout', (event) => {
+                if (!carousel.contains(event.relatedTarget)) startAutoplay();
+            });
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) stopAutoplay();
+                else startAutoplay();
+            });
+
+            showPage(0);
+            startAutoplay();
+        })();
+
+        const currentPage = location.pathname.split('/').pop().replace('.html', '') || 'home';
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.toggle('active-nav', btn.dataset.tab === currentPage || (currentPage === 'index' && btn.dataset.tab === 'home'));
+        });
+
+        // Mobile Menu Logic
+        const sidebar = document.getElementById('sidebar');
+        const menuToggle = document.getElementById('mobile-menu-toggle');
+        const menuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            sidebar.classList.remove('-translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            sidebar.classList.add('-translate-x-full');
+        }
+
+        menuToggle?.addEventListener('click', openMobileMenu);
+        menuClose?.addEventListener('click', closeMobileMenu);
+
+        // Form Submit Handler
+        document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent successfully.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
