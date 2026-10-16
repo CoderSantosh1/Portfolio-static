@@ -1153,3 +1153,8 @@ main.hx-main { padding: 0 !important; background: #faf8f3; }
   .hx-form-row { grid-template-columns: 1fr; gap: 0; }
   .hx-card { padding: 28px 22px; }
 }
+
+/* Two-column reviews grid (reviews page) */
+.hx-reviews-grid.hx-reviews-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hx-reviews-grid.hx-reviews-2 .hx-review-featured { grid-column: auto; }
+@media (max-width: 600px) { .hx-reviews-grid.hx-reviews-2 { grid-template-columns: 1fr; } }
